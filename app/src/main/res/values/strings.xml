@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Rise &amp; Grind, Go Beyond!</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="assign">Assign time to a challenge</string>
+    <string name="chrono">Chronometer</string>
+    <string name="challengesTitle">Challenges</string>
+    <string name="UserChallenges">Your Challenges</string>
+    <string name="SearchChallenges">Search Challenges</string>
+    <string name="NewChallenge">New Challenge</string>
+    <string name="WelcomeMSG">Welcome back!</string>
+    <string name="AccManage">Account</string>
+    <string name="UserNotLoaded"> Couldn\'t load user </string>
+    <string name="Cancel">Cancel</string>
+    <string name="Confirm">Done!</string>
+    <string name="DescriptionHint">Challenge Description</string>
+    <string name="CreationDescriptionHeader">What is it about?</string>
+    <string name="TimeAsk">Set your goal</string>
+    <string name="ChallengeCreationHeader">Time for a new challenge!</string>
+    <string name="nameHint">Name</string>
+    <string name="Frequency">Frequency</string>
+    <string name="GoalTypeHeader">Do you want to...</string>
+    <string name="GoalType1">Waste no time doing this!</string>
+    <string name="GoalType2">Do this as much as I can!</string>
+    <string name="ChallengesHeader">Challenges</string>
+    <string name="searchHint">Search challenges</string>
+    <string name="ChallengeNameError">Challenge name not found</string>
+    <string name="ProgressTimeAsk">Tell us today\'s results</string>
+    <string name="ProgressHeader">This is your progress so far</string>
+    <string name="YourGoal">Your Goal:</string>
+    <string name="ThisWeek">This Week:</string>
+    <string name="Total">Total:</string>
+    <string name="Starting">Staring date:</string>
+    <string name="NotFoundError">Error! Information not found!</string>
+    <string name="ModifyChallenge">Modify</string>
+    <string name="AbandonChallenge">Abandon</string>
+</resources>

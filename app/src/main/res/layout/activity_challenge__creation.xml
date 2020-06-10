@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name = "myViewModel"
+            type= "com.example.risegrindgobeyond.ChallengeViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Challenge_Creation">
+
+        <EditText
+            android:id="@+id/editTextChallengeName"
+            android:layout_width="388dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:text="@={myViewModel.inputName}"
+            android:hint="ChallengeName"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <EditText
+            android:id="@+id/editTextFreq"
+            android:layout_width="383dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Frecuency ( waste no time / Do it continuously )"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputFrec}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.607"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextChallengeName" />
+
+        <EditText
+            android:id="@+id/editTextGoal"
+            android:layout_width="378dp"
+            android:layout_height="57dp"
+            android:ems="10"
+            android:hint="Goal (exm. 1 timer per day)"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputGoal}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextFreq" />
+
+        <EditText
+            android:id="@+id/editTextDesc"
+            android:layout_width="371dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Challenge Descrition"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputDesc}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextGoal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.636"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@={myViewModel.deleteButton}"
+                android:onClick="@{()->myViewModel.clearorDelete()}"/>
+
+            <Button
+                android:id="@+id/buttonConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@={myViewModel.saveButton}"
+                android:onClick="@{()->myViewModel.saveorUpdate()}"/>
+
+
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/challengeRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            />
+
+    </LinearLayout>
+</layout>
