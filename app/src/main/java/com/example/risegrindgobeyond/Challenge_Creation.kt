@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.risegrindgobeyond.DB.ChallengeDataBase
 import com.example.risegrindgobeyond.DB.ChallengeRepository
+import com.example.risegrindgobeyond.DB.Challenges
 import com.example.risegrindgobeyond.DB.challengeDAO
 import com.example.risegrindgobeyond.database.DataBaseQueries
 import com.example.risegrindgobeyond.databinding.ActivityChallengeCreationBinding
@@ -26,7 +29,9 @@ class Challenge_Creation : AppCompatActivity() {
 //    lateinit var ChallengeGoal: EditText
 //    lateinit var ChallengeDesc : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        //setContentView(R.layout.activity_challenge__creation)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_challenge__creation)
         val dao: challengeDAO = ChallengeDataBase.getInstance(application).ChallengeDao
         val repository = ChallengeRepository(dao)
@@ -35,7 +40,20 @@ class Challenge_Creation : AppCompatActivity() {
         binding.myViewModel = challengeViewModel
         binding.lifecycleOwner = this
         displayChallengeList()
-}
+        initRecyclerView()
+        challengeViewModel.message.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                Toast.makeText(this,it,Toast.LENGTH_LONG).show()
+            }
+        })
+
+    }
+
+    private fun initRecyclerView(){
+        binding.challengeRecyclerView.layoutManager = LinearLayoutManager(this)
+        displayChallengeList()
+
+    }
 
 
 //        ChallengeName = findViewById(R.id.editTextChallengeName)
@@ -84,9 +102,15 @@ class Challenge_Creation : AppCompatActivity() {
     private fun displayChallengeList(){
         challengeViewModel.challenges.observe(this, Observer {
             Log.i("MYTAG",it.toString())
+            binding.challengeRecyclerView.adapter = MyRecycleViewAdapter(it,{selectedItem:Challenges->listItemCliked(selectedItem)})
         })
 
 
+    }
+
+    private fun listItemCliked(challenge:Challenges){
+        //Toast.makeText(this,"Challenge name is ${challenge.name}",Toast.LENGTH_LONG).show()
+        challengeViewModel.initUpdateandDelete(challenge)
     }
 //    fun addChallenge(v:View) {
 //        val db = DataBaseQueries(this)

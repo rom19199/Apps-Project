@@ -11,10 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonSearchChallenges.setOnClickListener(){
-            val intent :Intent = Intent(this, ChallengeProgress::class.java)
-            startActivity(intent)
-        }
+
 
         buttonNewChallenge.setOnClickListener(){
             val intent :Intent = Intent(this, Challenge_Creation::class.java)

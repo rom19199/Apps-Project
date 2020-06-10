@@ -88,16 +88,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="@{()->myViewModel.clearorDelete()}"
                 android:text="@={myViewModel.deleteButton}"
-                android:onClick="@{()->myViewModel.clearorDelete()}"/>
+                tools:text="SAVE" />
 
             <Button
                 android:id="@+id/buttonConfirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="@{()->myViewModel.saveorUpdate()}"
                 android:text="@={myViewModel.saveButton}"
-                android:onClick="@{()->myViewModel.saveorUpdate()}"/>
+                tools:text="CLEAR ALL" />
 
 
 
@@ -105,7 +107,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/challengeRV"
+            android:id="@+id/challenge_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

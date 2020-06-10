@@ -5,7 +5,7 @@ class ChallengeRepository (private val dao:challengeDAO){
     val challenges= dao.getAllChallenges()
 
     suspend fun insert(challenge:Challenges){
-        dao.insertChallenge(challenge)
+         dao.insertChallenge(challenge)
     }
 
     suspend fun update(challenge:Challenges){
